@@ -31,7 +31,7 @@ def createDriver():
     }
 
     #Set driver
-    driver = webdriver.Remote("http://0.0.0.0:4723/wd/hub", desired_caps)
+    driver = webdriver.Remote("http://127.0.0.1:4723/wd/hub", desired_caps)
 
     return driver
 
@@ -39,9 +39,9 @@ def killDriver():
     currentDriver = None
 
     #Verify if driver already exist on the config module, if so will return the current driver
-if config.isInstance == True:
-    currentDriver = config.driver
-    currentDriver.quit()
+    if config.isInstance == True:
+        currentDriver = config.driver
+        currentDriver.quit()
 
     #Set the driver on config module for later instances
     config.isInstance = False
